@@ -27,12 +27,12 @@ export const icons = {
 };
 
 export const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Enfoque", href: "#enfoque" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Nosotras", href: "#nosotras" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "FAQ", href: "#faq" }
+  { label: "Inicio", page: "inicio" },
+  { label: "Servicios", page: "servicios" },
+  { label: "Nosotras", page: "nosotras" },
+  { label: "Proceso", page: "proceso" },
+  { label: "FAQ", page: "faq" },
+  { label: "Contacto", page: "contacto" }
 ];
 
 export const adultTherapyService = {

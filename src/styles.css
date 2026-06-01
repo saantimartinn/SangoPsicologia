@@ -2001,3 +2001,92 @@ img {
   background: var(--primary);
   border-color: var(--primary);
 }
+.page-main {
+  min-height: 70vh;
+}
+
+.brand-button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-link {
+  position: relative;
+  border: 0;
+  padding: 0;
+  color: var(--text-soft);
+  background: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: var(--primary-dark);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link-active {
+  color: var(--primary-dark);
+}
+
+.nav-link:hover::after,
+.nav-link-active::after {
+  width: 100%;
+}
+
+.header-cta {
+  border: 0;
+  cursor: pointer;
+}
+
+.header-cta-outline {
+  border: 1px solid var(--border);
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.footer-link-button {
+  display: block;
+  width: fit-content;
+  margin: 8px 0;
+  padding: 0;
+  border: 0;
+  color: rgba(255, 255, 255, 0.66);
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.footer-link-button:hover {
+  color: white;
+}
+
+@media (max-width: 820px) {
+  .nav-link {
+    width: 100%;
+    padding: 13px 12px;
+    border-radius: 14px;
+    text-align: left;
+  }
+
+  .nav-link:hover,
+  .nav-link-active {
+    background: var(--primary-light);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+}

@@ -21,36 +21,62 @@ const {
   Sparkles
 } = icons;
 
-function Header() {
+function Header({ activePage, onNavigate }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  function handleNavigate(page) {
+    onNavigate(page);
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a href="#inicio" className="brand" aria-label="Sango Psicología">
+        <button
+          type="button"
+          className="brand brand-button"
+          aria-label="Sango Psicología"
+          onClick={() => handleNavigate("inicio")}
+        >
           <img
             src="/images/logo-sango.png"
             alt="Sango Psicología"
             className="brand-logo"
           />
-        </a>
+        </button>
 
         <nav className={`nav ${isOpen ? "nav-open" : ""}`}>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setIsOpen(false)}>
+            <button
+              key={link.page}
+              type="button"
+              className={`nav-link ${
+                activePage === link.page ? "nav-link-active" : ""
+              }`}
+              onClick={() => handleNavigate(link.page)}
+            >
               {link.label}
-            </a>
+            </button>
           ))}
         </nav>
 
         <div className="header-actions">
-          <a href="#contacto-formulario" className="header-cta header-cta-outline">
+          <button
+            type="button"
+            className="header-cta header-cta-outline"
+            onClick={() => handleNavigate("contacto")}
+          >
             Contáctanos
-          </a>
+          </button>
 
-          <a href="#contacto" className="header-cta">
+          <button
+            type="button"
+            className="header-cta"
+            onClick={() => handleNavigate("contacto")}
+          >
             Primera consulta
-          </a>
+          </button>
         </div>
 
         <button
@@ -68,7 +94,7 @@ function Header() {
   );
 }
 
-function Hero() {
+function Hero({ onNavigate }) {
   return (
     <section id="inicio" className="hero">
       <div className="container hero-grid">
@@ -84,13 +110,22 @@ function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a href="#contacto" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => onNavigate("contacto")}
+            >
               Empezar ahora
               <ArrowRight size={18} />
-            </a>
-            <a href="#servicios" className="btn btn-secondary">
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => onNavigate("servicios")}
+            >
               Ver servicios
-            </a>
+            </button>
           </div>
 
           <div className="hero-trust">
@@ -170,7 +205,7 @@ function Approach() {
   );
 }
 
-function Services() {
+function Services({ onNavigate }) {
   const service = adultTherapyService;
 
   return (
@@ -202,11 +237,14 @@ function Services() {
                 </div>
               ))}
             </div>
-
-            <a href="#contacto" className="btn btn-primary service-booking-btn">
+            <button
+              type="button"
+              className="btn btn-primary service-booking-btn"
+              onClick={() => onNavigate("contacto")}
+            >
               Reservar una sesión
               <ArrowRight size={18} />
-            </a>
+            </button>
           </aside>
         </div>
 
@@ -316,7 +354,7 @@ function Process() {
   );
 }
 
-function FAQ() {
+function FAQ({ onNavigate }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
@@ -358,10 +396,15 @@ function FAQ() {
               de reservar una sesión.
             </p>
 
-            <a href="#contacto" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => onNavigate("contacto")}
+            >
               Contactar
               <ArrowRight size={18} />
-            </a>
+            </button>
+
           </aside>
         </div>
       </div>
@@ -417,18 +460,23 @@ function ContactPreview() {
   );
 }
 
-function Footer() {
+function Footer({ onNavigate }) {
   return (
     <footer className="footer">
       <div className="container footer-grid">
         <div>
-          <a href="#inicio" className="brand footer-brand">
+          <button
+            type="button"
+            className="brand footer-brand brand-button"
+            onClick={() => onNavigate("inicio")}
+          >
             <img
               src="/images/logo-sango.png"
               alt="Sango Psicología"
               className="footer-logo"
             />
-          </a>
+          </button>
+
           <p>
             Clínica de psicología con un enfoque cercano, profesional y adaptado
             a cada persona.
@@ -437,18 +485,30 @@ function Footer() {
 
         <div>
           <h4>Secciones</h4>
+
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href}>
+            <button
+              key={link.page}
+              type="button"
+              className="footer-link-button"
+              onClick={() => onNavigate(link.page)}
+            >
               {link.label}
-            </a>
+            </button>
           ))}
         </div>
 
         <div>
           <h4>Legal</h4>
-          <a href="#inicio">Aviso legal</a>
-          <a href="#inicio">Política de privacidad</a>
-          <a href="#inicio">Política de cookies</a>
+          <button type="button" className="footer-link-button">
+            Aviso legal
+          </button>
+          <button type="button" className="footer-link-button">
+            Política de privacidad
+          </button>
+          <button type="button" className="footer-link-button">
+            Política de cookies
+          </button>
         </div>
       </div>
 
@@ -461,19 +521,40 @@ function Footer() {
 }
 
 export default function App() {
+  const [activePage, setActivePage] = useState("inicio");
+
+  function navigate(page) {
+    setActivePage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
-        <Approach />
-        <Services />
-        <Team />
-        <Process />
-        <FAQ />
-        <ContactPreview />
+      <Header activePage={activePage} onNavigate={navigate} />
+
+      <main className="page-main">
+        {activePage === "inicio" && (
+          <>
+            <Hero onNavigate={navigate} />
+            <Approach />
+          </>
+        )}
+
+        {activePage === "servicios" && (
+          <Services onNavigate={navigate} />
+        )}
+
+        {activePage === "nosotras" && <Team />}
+
+        {activePage === "proceso" && <Process />}
+
+        {activePage === "faq" && <FAQ onNavigate={navigate} />}
+
+        {activePage === "contacto" && <ContactPreview />}
       </main>
-      <Footer />
+
+      <Footer onNavigate={navigate} />
+
       <ChatWidget />
     </>
   );
