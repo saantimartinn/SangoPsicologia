@@ -527,11 +527,10 @@ export default function App() {
 
       <main className="page-main">
         {activePage === "inicio" && (
-          <>
-            <Hero onNavigate={navigate} />
-            <Approach />
-          </>
+          <Hero onNavigate={navigate} />
         )}
+
+        {activePage === "enfoque" && <Approach />}
 
         {activePage === "servicios" && (
           <Services onNavigate={navigate} />

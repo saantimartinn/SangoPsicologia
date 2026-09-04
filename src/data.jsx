@@ -28,7 +28,7 @@ export const icons = {
 
 export const navLinks = [
   { label: "Inicio", page: "inicio" },
-  { label: "Servicios", page: "servicios" },
+  { label: "Nuestro enfoque", page: "enfoque" },
   { label: "Nosotras", page: "nosotras" },
   { label: "Proceso", page: "proceso" },
   { label: "FAQ", page: "faq" },
