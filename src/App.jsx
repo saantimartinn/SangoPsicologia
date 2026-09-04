@@ -176,7 +176,7 @@ function Approach() {
       <div className="container">
         <SectionIntro
           eyebrow="Nuestro enfoque"
-          title="Terapia cercana, pero no improvisada."
+          title="Entendemos la terapia como un espacio para parar, entender qué te está pasando y empezar a construir cambios que tengan sentido para ti."
         />
 
         <div className="values-grid">
@@ -192,12 +192,13 @@ function Approach() {
         <div className="approach-banner">
           <div>
             <span>Sango significa cambio</span>
-            <h3>No eres un diagnóstico. Eres una persona con una historia.</h3>
+            <h3>En Sango creemos que el cambio siempre es posible.</h3>
           </div>
           <p>
-            Por eso el proceso terapéutico no se construye desde etiquetas, sino
-            desde una comprensión completa de lo que te ocurre, lo que necesitas
-            y el momento vital en el que estás.
+            Incluso cuando parece difícil, incluso cuando no sabes por dónde
+            empezar. Sango significa cambio, pero para nosotras también es
+            acompañamiento. Un espacio donde ese cambio es posible, respetado y
+            cuidado.
           </p>
         </div>
       </div>
@@ -275,7 +276,7 @@ function Team() {
         <div className="team-redesign-header">
           <div>
             <span className="team-kicker">Nosotras</span>
-            <h2>Psicólogas que acompañan desde la cercanía y el rigor.</h2>
+            <h2>¿Quiénes somos?</h2>
           </div>
 
           <p>
@@ -302,7 +303,11 @@ function Team() {
 
                 <p className="team-profile-license">{person.license}</p>
 
-                <p className="team-profile-text">{person.text}</p>
+                <div className="team-profile-text">
+                  {person.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
 
                 <div className="team-specialties">
                   {person.specialties.map((specialty) => (
@@ -314,18 +319,6 @@ function Team() {
           ))}
         </div>
 
-        <div className="team-closing-card">
-          <div>
-            <span>Enfoque Sango</span>
-            <h3>Un acompañamiento humano, claro y adaptado a cada historia.</h3>
-          </div>
-
-          <p>
-            No trabajamos desde fórmulas cerradas. Cada proceso terapéutico se
-            adapta al ritmo, necesidades y circunstancias de la persona que
-            llega a consulta.
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -337,7 +330,7 @@ function Process() {
       <div className="container">
         <SectionIntro
           eyebrow="Proceso"
-          title="Cómo empezamos a trabajar"
+          title="No hay un único camino para cambiar, juntos construimos el tuyo."
         />
 
         <div className="steps-grid">

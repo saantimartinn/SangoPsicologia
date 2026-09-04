@@ -1566,6 +1566,14 @@ img {
   line-height: 1.68;
 }
 
+.team-profile-text p {
+  margin: 0;
+}
+
+.team-profile-text p + p {
+  margin-top: 14px;
+}
+
 .team-specialties {
   display: flex;
   flex-wrap: wrap;
