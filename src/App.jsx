@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ContactForm from "./components/ContactForm";
 import ChatWidget from "./components/ChatWidget";
-import CalendlyEmbed from "./components/CalendlyEmbed";
 import {
   navLinks,
   adultTherapyService,
@@ -13,7 +12,6 @@ import {
 } from "./data";
 
 const {
-  CalendarDays,
   MapPin,
   ArrowRight,
   CheckCircle2,
@@ -412,12 +410,12 @@ function ContactPreview() {
         <div className="contact-section-header">
           <span className="contact-kicker">Contacto</span>
 
-          <h2>Reserva una sesión o escríbenos si tienes dudas.</h2>
+          <h2>Escríbenos si quieres empezar o tienes alguna duda.</h2>
 
           <p>
-            Puedes reservar directamente una primera sesión o enviarnos una
-            consulta breve. Si necesitas aclarar algo antes de empezar, estaremos
-            encantadas de orientarte.
+            Envíanos una consulta breve y nos pondremos en contacto contigo.
+            Si necesitas aclarar algo antes de empezar, estaremos encantadas de
+            orientarte.
           </p>
         </div>
 
@@ -433,19 +431,6 @@ function ContactPreview() {
             </div>
 
             <ContactForm />
-          </div>
-
-          <div className="contact-calendly-card">
-            <div className="contact-card-intro">
-              <span>Reserva online</span>
-              <h3>Elige día y hora para tu sesión.</h3>
-              <p>
-                Si ya tienes claro que quieres empezar, puedes reservar
-                directamente una sesión desde el calendario.
-              </p>
-            </div>
-
-            <CalendlyEmbed />
           </div>
         </div>
       </div>

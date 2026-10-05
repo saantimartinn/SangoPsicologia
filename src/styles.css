@@ -920,11 +920,6 @@ img {
     flex-direction: column;
   }
 }
-.contact-card-with-calendly {
-  grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1fr);
-  align-items: stretch;
-}
-
 .contact-content {
   display: flex;
   flex-direction: column;
@@ -934,40 +929,6 @@ img {
 .contact-actions-left {
   margin-top: 28px;
   display: flex;
-}
-
-.calendly-panel {
-  min-height: 680px;
-  padding: 14px;
-  border-radius: 30px;
-  background: rgba(255, 250, 247, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 24px 60px rgba(63, 48, 44, 0.16);
-}
-
-.calendly-shell {
-  width: 100%;
-  min-height: 650px;
-  overflow: hidden;
-  border-radius: 22px;
-  background: white;
-}
-
-.calendly-embed {
-  width: 100%;
-  min-width: 320px;
-  min-height: 650px;
-}
-
-.calendly-error {
-  display: grid;
-  place-items: center;
-  min-height: 420px;
-  padding: 28px;
-  text-align: center;
-  color: var(--text-soft);
-  background: white;
-  border-radius: 22px;
 }
 
 .chat-widget {
@@ -1141,21 +1102,6 @@ img {
   }
 }
 
-@media (max-width: 1050px) {
-  .contact-card-with-calendly {
-    grid-template-columns: 1fr;
-  }
-
-  .calendly-panel {
-    min-height: 620px;
-  }
-
-  .calendly-shell,
-  .calendly-embed {
-    min-height: 600px;
-  }
-}
-
 @media (max-width: 620px) {
   .chat-widget {
     right: 16px;
@@ -1176,14 +1122,6 @@ img {
     height: 300px;
   }
 
-  .calendly-panel {
-    padding: 8px;
-    border-radius: 24px;
-  }
-
-  .calendly-shell {
-    border-radius: 18px;
-  }
 }
 
 .service-detail-section {
@@ -1798,13 +1736,11 @@ img {
 
 .contact-options-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 760px);
   align-items: start;
 }
 
-.contact-form-card,
-.contact-calendly-card {
+.contact-form-card {
   padding: 30px;
   border-radius: 36px;
   background:
@@ -1956,29 +1892,8 @@ img {
   animation: spin 0.9s linear infinite;
 }
 
-.contact-calendly-card .calendly-panel {
-  padding: 0;
-  min-height: auto;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
-.contact-calendly-card .calendly-shell {
-  min-height: 650px;
-  border-radius: 24px;
-  border: 1px solid rgba(234, 214, 204, 0.92);
-}
-
-@media (max-width: 1050px) {
-  .contact-options-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 620px) {
-  .contact-form-card,
-  .contact-calendly-card {
+  .contact-form-card {
     padding: 22px;
     border-radius: 28px;
   }

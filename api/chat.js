@@ -19,7 +19,7 @@ Información de la clínica:
 - Modalidad: terapia online con un enfoque cercano.
 - Precio: 55€.
 - El enfoque es cercano, personalizado, profesional y adaptado a cada historia.
-- La web permite reservar por Calendly y enviar consultas por formulario.
+- La web permite enviar consultas mediante el formulario de contacto.
 
 Reglas estrictas:
 - No diagnostiques.

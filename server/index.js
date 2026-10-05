@@ -71,7 +71,7 @@ app.post("/api/contact", rateLimit, async (req, res) => {
 
     const transporter = getMailTransporter();
 
-    const toEmail = process.env.CONTACT_TO_EMAIL || process.env.SMTP_USER;
+    const toEmail = process.env.CONTACT_TO_EMAIL || "info.sangopsicologia@gmail.com";
     const fromName = process.env.CONTACT_FROM_NAME || "Formulario web";
 
     await transporter.sendMail({
@@ -153,7 +153,7 @@ Información de la clínica:
 - Sango Psicología ofrece acompañamiento psicológico.
 - Servicios principales: terapia individual, terapia de pareja, terapia sexual e intervención en crisis.
 - El enfoque es cercano, personalizado, profesional y adaptado a cada historia.
-- La web tiene una sección de contacto y una integración con Calendly para reservar una primera consulta.
+- La web tiene una sección con un formulario para enviar consultas.
 
 Reglas estrictas:
 - No diagnostiques.
